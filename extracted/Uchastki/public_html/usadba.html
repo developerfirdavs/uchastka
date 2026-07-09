@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Семейная усадьба</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<link rel="stylesheet" href="css/usadba.css?v=2">
+	<link rel="stylesheet" href="css/adaptiv.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/modalform.css">
+</head>
+</head>
+
+<body>
+	<section class="nav__block-usadba">
+		<section class="container">
+			<div class="menu">
+				<ul>
+					<li><a class="link" href="index.html">Главная</a></li>
+					<li><a class="link" href="#">Условия покупки</a></li>
+					<a class="logo" href=""><img src="images/logo.png"></a>
+					<li><a class="link" href="#reviews__h1">Отзывы</a></li>
+					<li><a class="link" href="#footer">Контакты</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<div class="container">
+			<div class="content">
+				<nav role="navigation">
+					<div id="menuToggle">
+						<input type="checkbox" />
+						<span></span>
+						<span></span>
+						<span></span>
+						<ul id="menu">
+							<li><a href="index.html">Главная</a></li>
+							<li><a href="">Условия покупки</a></li>
+							<li><a href="#reviews__h1">Отзывы</a></li>
+							<li><a href="#footer">Контакты</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<section class="container">
+			<div class="header__title">
+				<h1 data-aos="fade-right" data-aos-duration="2000">Семейная усадьба</h1>
+				<h2>Успей купить участок по низкой цене уже сейчас</h2>
+				<button class="act3-project consult" data-project="usadba" data-aos="zoom-out-left" data-aos-duration="1000" class="header__btn">Получить консультацию</button>
+			</div>
+		</section>
+	</section>
+
+
+	<div class="project__block">
+		<section class="container">
+			<div class="project__h1">
+				<h1 class="info_h1">О проекте</h1>
+			</div>
+			<div class="project__centr">
+				<div class="project__left">
+					<h1 class="project__left-h1">Семейная усадьба.</h1>
+					<h2 class="project__left-h2">Загородный посёлок Семейная Усадьба!
+						Уютный поселок находящийся в близи от всей инфраструктуры в деревне Горшки,
+						где есть все необходимое для круглогодичного проживания или тихого дачного гнездышка.
+						До Перми 30 минут спокойной езды. В шаговой доступности начальная школа, фап, магазины, остановка.
+						Планируется подведение газа! Очень красивое и живописное место, вокруг леса и озера!
+						Дорога отсыпана и будет обслуживаться круглогодично, что позволит приезжать к себе на участок и летом и зимой!
+						Всего 60 участков ИЖС которые можно будет приобрести в рассрочку.
+						Очень выгодное вложение и для тех кто хочет просто инвестировать ведь
+						земля с каждым годом только растет в цене!<br></h2>
+					<button data-project="usadba" data-aos="zoom-in" data-aos-duration="1000" class="project__btn consult">Записаться на
+						консультацию</button>
+				</div>
+				<div data-aos="flip-left" data-aos-duration="2000" class="project__right">
+					<a href=""><img src="images/icon_proect.png"></a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+	<div class="container__cart">
+		<h1 class="cart__h1">Выбрать участок</h1>
+		<div class="cart__flex">
+			<p class="cart__p">Генеральный план.
+				Назовите номер участка менеджеру и он Вас проконсультирует.
+				Жирным шрифтом указана нумерация участков.
+				Цифрами ниже, стандартной жирности, указана площадь.</p>
+
+
+<div class="cart__block">
+				 <div class="">
+        
+        
+        <div class="filters">
+            <button id="filter-available" class="filter-btn active">Продается</button>
+            <button id="filter-reserved" class="filter-btn active">Бронь</button>
+            <button id="filter-sold" class="filter-btn active">Продан</button>
+        </div>
+        
+        <div class="map-wrapper">
+            <div class="loading">Загрузка данных...</div>
+            <img id="map-image" src="images/usadba-plan.webp" alt="Усадьба" style="display: none;">
+        </div>
+    </div>
+	</div>
+	</div>
+
+
+
+			
+
+
+	<section class="still__questions position-relative">
+			<div class="still__questions-block">
+				<div class="still__questions-block-h1">
+					<h1 class="info_h1">Остались вопросы?</h1>
+					<h2 class="still__questions-block-h2">Заполните форму и мы Вам перезвоним</h2>
+				</div>
+
+				<form class="forms__block-still" action="php/mail.php" method="POST">
+					<div class="form-container-still">
+						<div class="input__block-still">
+							<input type="text" id="name" name="name" placeholder="Ваше имя" required />
+							<input type="tel" id="phone" name="phone" placeholder="+7 (___) ___ __ __" required />
+						</div>
+
+						<div class="checkboxing-still">
+							<input type="checkbox" id="privacyPolicy" required />
+							<label class="checkbox-label" for="privacyPolicy">Я согласен(а) с условиями политики на
+								обработку персональных данных</label>
+						</div>
+						<div class="btn-form-still">
+							<button class="btn-still" type="submit">Оставить заявку</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+	</section>
+
+	<section class="container">
+		<div class="reviews__h1" id="reviews__h1">
+			<h1 class="info_h1">Галерея</h1>
+		</div>
+		
+		<div class="reviews">
+			<div class="main-image-container">
+				<img id="main-image" src="images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (2).jpg" alt="Current review" class="main-image">
+			</div>
+			
+			
+			<div class="thumbnail-gallery">
+				<div class="thumbnails">
+					<div class="thumbnail" onclick="showImage('images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (2).jpg')">
+						<img src="images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (2).jpg" alt="Семейная усадьба">
+					</div>
+					<div class="thumbnail" onclick="showImage('images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (3).jpg')">
+						<img src="images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (3).jpg" alt="Семейная усадьба">
+					</div>
+					<div class="thumbnail" onclick="showImage('images/Слайдер/Усадьба/photo_2025-07-21_18-19-41.jpg')">
+						<img src="images/Слайдер/Усадьба/photo_2025-07-21_18-19-41.jpg" alt="Семейная усадьба">
+					</div>
+					<div class="thumbnail" onclick="showImage('images/Слайдер/Усадьба/photo_2025-07-21_18-19-42.jpg')">
+						<img src="images/Слайдер/Усадьба/photo_2025-07-21_18-19-42.jpg" alt="Семейная усадьба">
+					</div>
+					<!-- Добавьте картинки по примеру и измените в js внизу -->
+				</div>
+				
+				<button class="slider-btn previous" onclick="prevThumbnail()">❮</button>
+				<button class="slider-btn nexxt" onclick="nextThumbnail()">❯</button>
+			</div>
+		</div>
+	</section>
+
+	<section class="container">
+		<div class="reviews__h1" id="reviews__h1">
+			<h1 class="info_h1">Отзывы</h1>
+		</div>
+		<div class="reviews">
+			<div class="slider-container">
+				<!-- Слайды -->
+				<div class="slides" id="slides">
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar1.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Виктор -</p>
+						<blockquote>
+							Купили участок, очень уютное место, близ леса. Так как участки большие, нет кучности застройки, ощущается
+							просторно.
+							Быстро оформил с беспроцентной рассрочкой. Договор без сомнительных пунктов, все ровно. Очень доволен
+							приобретением.
+						</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Татьяна -</p>
+						<blockquote>
+							Есть в Пермском крае много мест где хотелось жить и Альпийские поля одно из них.
+							Чистый воздух, куда не посмотри все радует глаз, красивая природа, смешанный лес.
+							Рядом железная речка. Вобщем купив участок здесь я считаю мне повезло, всем советую! 
+						</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar2.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Юлия -</p>
+						<blockquote>
+							Приобретали участок в этой компании. Очень довольны своей покупкой.
+							Сотрудники оперативно отвечали на все наши вопросы, ожидания и реальность при выборе участка полностью
+							совпали.
+							Рекомендуем эту компанию от всей души! Замечательный коллектив и прекрасные участки! 
+						</blockquote>
+
+					</div>
+
+				</div>
+
+				<!-- Навигационные кнопки -->
+				<button class="slider-btn prev" onclick="prevSlide()">❮</button>
+				<button class="slider-btn next" onclick="nextSlide()">❯</button>
+			</div>
+	</section>
+
+
+
+	<section class="footer" id="footer">
+		<div class="container">
+			<div class="footer__container">
+
+				<div class="footer__block-h1">
+					<h1>Контакты</h1>
+					<div class="footer__block-contact">
+						<p>Адрес:<br> ул. Героев Хасана д. 105 корпус 70 офис 309Б</p>
+						<p>Телефоны менеджеров:</p>
+						<p>8-902-83-02-372 - Дарья</p>
+						<p>8-922-31-88-321 - Дарья</p>
+						<p>E-mail: info@lavrovy-polya.ru</p>
+					</div>
+				</div>
+
+				<div class="footer__cart">
+					<iframe
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3A982f8abe08b3bd38a71ac4ae60347c28617c5544ae2c6d891b06c864e6a7666f&source=constructor"
+						frameborder="0"
+						style="width: 100%; height: 100%;"> 
+					</iframe>
+				</div>
+
+				<div class="footer__icon-h1">
+					<h1>Мы в соц. сетях</h1>
+					<div class="footer__icon-img">
+						<a href=""><img src="images/vk.png" alt=""></a>
+						<a href=""><img src="images/whatsapp.png" alt=""></a>
+						<a href=""><img src="images/tg.png" alt=""></a>
+					</div>
+					<div class="footer__icon-info">
+						<p>СК Лавровы поля</p>
+						<p>ИНН 5948064572</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="footer__menu">
+		<div class="container">
+			<div class="footer__block-menu">
+				<ul>
+					<li><a class="link" href="#project__block">О проекте</a></li>
+					<li><a class="link" href="#proecty">Земельные участки</a></li>
+					<li><a class="logo" href=""><img src="images/logo.png" ></a></li>
+					<li><a class="link" href="">Условия покупки</a></li>
+					<li><a class="link" href="">Строительство домов</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="footer__content">
+		<div class="container">
+			<div class="footer__content-left">
+				<p><a href="">Политика конфиденциальности</a></p>
+				<p>&copy;Все права защищены</a></p>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalOverlay" class="modal-overlay">
+        <div class="modal-container">
+            <button id="closeModalButton">X</button>
+            <header class="modal-header">
+                <h1 class="modal__h1">Оставьте заявку<br> на консультацию</h1>
+            </header>
+            <form id="registrationForm">
+                <div class="modal__block-name">
+                    <input class="name" type="text" name="name" placeholder="Имя"  required>
+                    <input class="phone" type="tel" name="phone" placeholder="+7 (___) ___ ____" required>
+                    <div class="modal__checbox">
+                        <input class="checkbox" type="checkbox" name="checkbox" required>
+                        <h5 class="modal__chekbox-h5">Я согласен(а) с условиями Политики на<br> обработку персональных данных</h5>
+                    </div>
+                    <div class="button__block-modal"><button class="modal__btn" type="submit">Оставить заявку</button></div>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+<script src="js/map-loader.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/accordeon.js"></script>
+	<script src="js/madalform.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var mapImage = document.getElementById('map-image');
+			if (mapImage) {
+				mapImage.onload = function() {
+					MapLoader.init('https://docs.google.com/spreadsheets/d/1awsNwygdtFwAPmCw1wakfcjIBbn6EAX3Q1RLzz2McKE/gviz/tq?tqx=out:csv&sheet=Sheet1');
+				};
+				if (mapImage.complete) {
+					MapLoader.init('https://docs.google.com/spreadsheets/d/1awsNwygdtFwAPmCw1wakfcjIBbn6EAX3Q1RLzz2McKE/gviz/tq?tqx=out:csv&sheet=Sheet1');
+				}
+			}
+		});
+
+		const checkbox = document.querySelector('#menuToggle input');
+		const headerTitle = document.querySelector('.header__title h1');
+
+
+		checkbox.addEventListener('change', function() {
+			if (this.checked) {
+				headerTitle.style.marginTop = '260px';
+			} else {
+				headerTitle.style.marginTop = '';
+			}
+		});
+
+		let currentImageIndex = 0;
+		const images = [
+			'images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (2).jpg',
+			'images/Слайдер/Усадьба/photo_2025-07-21_18-19-41 (3).jpg',
+			'images/Слайдер/Усадьба/photo_2025-07-21_18-19-41.jpg',
+			'images/Слайдер/Усадьба/photo_2025-07-21_18-19-42.jpg',
+			// Добавьте другие изображения
+		];
+		
+		function showImage(src) {
+			document.getElementById('main-image').src = src;
+			currentImageIndex = images.indexOf(src);
+		}
+		
+		function prevThumbnail() {
+			currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+			showImage(images[currentImageIndex]);
+		}
+		
+		function nextThumbnail() {
+			currentImageIndex = (currentImageIndex + 1) % images.length;
+			showImage(images[currentImageIndex]);
+		}
+	</script>
+</body>
+
+</html>

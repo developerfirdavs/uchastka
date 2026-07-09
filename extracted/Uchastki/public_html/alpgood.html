@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Лавровы поля</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/adaptiv.css">
+	<link rel="stylesheet" href="css/alp.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+</head>
+
+<body>
+	<section class="nav__block">
+		<section class="container">
+			<div class="menu">
+				<ul>
+					<li><a class="link" href="index.html">Главная</a></li>
+					<li><a class="link" href="#">Условия покупки</a></li>
+					<a class="logo" href=""><img src="images/logo.png"></a>
+					<li><a class="link" href="">Отзывы</a></li>
+					<li><a class="link" href="">Контакты</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="container">
+			<div class="header__title">
+				<h1 data-aos="fade-right" data-aos-duration="2000">Альпийские луга</h1>
+				<h2>Успей купить участок по низкой цене уже сейчас</h2>
+				<button data-aos="zoom-out-left" data-aos-duration="1000" class="header__btn">Получить консультацию</button>
+			</div>
+		</section>
+	</section>
+
+
+	<div class="project__block">
+		<section class="container">
+			<div class="project__h1">
+				<h1 class="info_h1">О проекте</h1>
+			</div>
+			<div class="project__centr">
+				<div class="project__left">
+					<h1 class="project__left-h1">Альпийские луга.</h1>
+					<h2 class="project__left-h2">Загородный поселок расположился на 18 га цветущих лугов, в 10 км от курорта Усть-Качка. Путь до поселка займет 40 минут от Перми по свободной трассе,
+								асфальтированная дорога идет до самого поселка!
+								Рядом находится п.Красный Восход и база отдыха Аллюр, а также магазины, школа и автобусная остановка.
+								Всего 150 участков от 7 до 14 соток. В поселке ведется отсыпка дорог, установка ЛЭП, организована детская и спортивная площадка,
+								общественная зона, а также площадка под мусорные баки.
+								Участки можно купить в рассрочку без 
+								банка, без справок о доходах.<br></h2>
+					<button data-aos="zoom-in" data-aos-duration="1000" class="project__btn">Записаться на
+						консультацию</button>
+				</div>
+				<div data-aos="flip-left" data-aos-duration="2000" class="project__right">
+					<a href=""><img src="images/video__icon.png"></a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="container__cart">
+		<h1 class="cart__h1">Выбрать участок</h1>
+		<p class="cart__p">Генеральный план Участки 7-14 соток, а также дома от 4,5 млн.р. 
+			Назовите номер участка менеджеру и он Вас проконсультирует. Жирным шрифтом указана нумерация участков. 
+			Цифрами ниже, стандартной жирности, указана площадь.</p>
+			<div class="cart__block">
+				 <div class="">
+        
+        
+        <div class="filters">
+            <button id="filter-available" class="filter-btn active">Продается</button>
+            <button id="filter-reserved" class="filter-btn active">Бронь</button>
+            <button id="filter-sold" class="filter-btn active">Продан</button>
+        </div>
+        
+        <div class="map-wrapper">
+            <div class="loading">Загрузка данных...</div>
+            <img id="map-image" src="images/carta.alp.jpg" alt="Карта New Filippovka" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        // Публичная ссылка на Google Sheets в формате CSV
+        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1inVyIZE5m45iaHNhRJKIbNyBsIQ--NSxH4voDoJf2Vc/gviz/tq?tqx=out:csv&sheet=Sheet1';
+        
+        // Элементы DOM
+        const mapWrapper = document.querySelector('.map-wrapper');
+        const mapImage = document.getElementById('map-image');
+        const loadingDiv = document.querySelector('.loading');
+        
+        // Фильтры
+        const filters = {
+            available: true,
+            reserved: true,
+            sold: true
+        };
+        
+        // Настройка фильтров
+        document.getElementById('filter-available').addEventListener('click', function() {
+            this.classList.toggle('active');
+            filters.available = !filters.available;
+            updatePointsVisibility();
+        });
+        
+        document.getElementById('filter-reserved').addEventListener('click', function() {
+            this.classList.toggle('active');
+            filters.reserved = !filters.reserved;
+            updatePointsVisibility();
+        });
+        
+        document.getElementById('filter-sold').addEventListener('click', function() {
+            this.classList.toggle('active');
+            filters.sold = !filters.sold;
+            updatePointsVisibility();
+        });
+        
+        // Загрузка данных из Google Sheets как CSV
+        async function loadDataFromGoogleSheets() {
+            try {
+                // Загружаем CSV данные
+                const response = await fetch(SHEET_URL);
+                const csvData = await response.text();
+                
+                // Парсим CSV в массив объектов
+                const houses = parseCSV(csvData);
+                console.log('Parsed houses:', houses); // Для отладки
+                
+                // Скрываем загрузку и показываем карту
+                loadingDiv.style.display = 'none';
+                mapImage.style.display = 'block';
+                
+                // Добавляем точки на карту
+                addHousesToMap(houses);
+                
+                // Обновляем при изменении размера окна
+                window.addEventListener('resize', () => addHousesToMap(houses));
+                
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+                loadingDiv.textContent = 'Ошибка загрузки данных. Пожалуйста, попробуйте позже.';
+            }
+        }
+        
+        // Парсинг CSV данных с учетом кавычек
+        function parseCSV(csv) {
+            const lines = csv.split('\n');
+            // Удаляем пустые строки
+            const nonEmptyLines = lines.filter(line => line.trim() !== '');
+            
+            if (nonEmptyLines.length === 0) return [];
+            
+            // Извлекаем заголовки из первой строки
+            const headers = parseCSVLine(nonEmptyLines[0]);
+            
+            return nonEmptyLines.slice(1).map(line => {
+                const values = parseCSVLine(line);
+                const house = {};
+                
+                headers.forEach((header, i) => {
+                    house[header] = values[i] || '';
+                });
+                
+                // Преобразуем координаты (предполагаем, что они в последнем столбце)
+                if (house['Координаты точки']) {
+                    const coords = house['Координаты точки'].split(',').map(coord => parseFloat(coord.trim()));
+                    if (coords.length === 2 && !isNaN(coords[0]) && !isNaN(coords[1])) {
+                        house.xPercent = coords[0];
+                        house.yPercent = coords[1];
+                    } else {
+                        house.xPercent = 0;
+                        house.yPercent = 0;
+                    }
+                } else {
+                    house.xPercent = 0;
+                    house.yPercent = 0;
+                }
+                
+                return house;
+            }).filter(house => house.xPercent && house.yPercent); // Фильтруем дома без координат
+        }
+
+        // Функция для парсинга одной строки CSV с учетом кавычек
+        function parseCSVLine(line) {
+            const result = [];
+            let inQuotes = false;
+            let currentField = '';
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(currentField);
+                    currentField = '';
+                } else {
+                    currentField += char;
+                }
+            }
+            
+            // Добавляем последнее поле
+            result.push(currentField);
+            
+            return result.map(field => field.trim().replace(/^"|"$/g, ''));
+        }
+        
+        // Добавление точек на карту
+        function addHousesToMap(houses) {
+            // Очищаем предыдущие точки
+            document.querySelectorAll('.point, .tooltip').forEach(el => el.remove());
+            
+            // Получаем текущие размеры изображения
+            const imgWidth = mapImage.clientWidth;
+            const imgHeight = mapImage.clientHeight;
+            
+            // Добавляем каждую точку
+            houses.forEach(house => {
+                // Рассчитываем позицию в пикселях
+                const xPos = (house.xPercent / 100) * imgWidth;
+                const yPos = (house.yPercent / 100) * imgHeight;
+                
+                // Создаем элемент точки
+                const point = document.createElement('div');
+                point.className = `point status-${getStatusClass(house['Статус'])}`;
+                point.style.left = `${xPos}px`;
+                point.style.top = `${yPos}px`;
+                point.dataset.status = getStatusClass(house['Статус']);
+                
+                // Создаем всплывающую подсказку
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `
+                    <h3>${house['Название'] || 'Без названия'}</h3>
+                    <p><span class="status status-${getStatusClass(house['Статус'])}-text">${getStatusText(house['Статус'])}</span></p>
+                    ${house['Цена'] ? `<p class="price">Цена: ${house['Цена']}</p>` : ''}
+                    ${house['Описание'] ? `<p>${house['Описание']}</p>` : ''}
+                `;
+                
+                // Добавляем события
+                point.addEventListener('mouseenter', () => {
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = `${xPos + 20}px`;
+                    tooltip.style.top = `${yPos}px`;
+                    
+                    // Проверяем, чтобы подсказка не выходила за границы экрана
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    if (tooltipRect.right > window.innerWidth) {
+                        tooltip.style.left = `${xPos - tooltipRect.width - 20}px`;
+                    }
+                    if (tooltipRect.bottom > window.innerHeight) {
+                        tooltip.style.top = `${yPos - tooltipRect.height}px`;
+                    }
+                });
+                
+                point.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+                
+                // Добавляем элементы на карту
+                mapWrapper.appendChild(point);
+                mapWrapper.appendChild(tooltip);
+            });
+            
+            // Применяем фильтры
+            updatePointsVisibility();
+        }
+        
+        // Обновление видимости точек по фильтрам
+        function updatePointsVisibility() {
+            document.querySelectorAll('.point').forEach(point => {
+                const status = point.dataset.status;
+                const shouldShow = 
+                    (status === 'available' && filters.available) ||
+                    (status === 'reserved' && filters.reserved) ||
+                    (status === 'sold' && filters.sold);
+                
+                point.style.display = shouldShow ? 'block' : 'none';
+            });
+        }
+        
+        // Вспомогательные функции для статусов
+        function getStatusClass(status) {
+            if (!status) return 'available';
+            
+            switch (status.toLowerCase()) {
+                case 'продается': return 'available';
+                case 'бронь': return 'reserved';
+                case 'продан': return 'sold';
+                default: return 'available';
+            }
+        }
+        
+        function getStatusText(status) {
+            if (!status) return 'Продается';
+            
+            switch (status.toLowerCase()) {
+                case 'продается': return 'Продается';
+                case 'бронь': return 'Бронь';
+                case 'продан': return 'Продан';
+                default: return status;
+            }
+        }
+        
+        // Загружаем данные при загрузке страницы
+        window.addEventListener('load', () => {
+            // Ждем загрузки изображения
+            mapImage.onload = loadDataFromGoogleSheets;
+            
+            // Если изображение уже загружено
+            if (mapImage.complete) {
+                loadDataFromGoogleSheets();
+            }
+        });
+    </script>
+			</div>
+	</div>
+
+
+	<section class="still__questions">
+		<div class="container">
+			<div class="still__questions-block">
+				<div class="still__questions-block-h1">
+					<h1 class="info_h1">Запишитесь на консультацию</h1>
+					<h2 class="still__questions-block-h2">Заполните форму и мы Вам перезвоним</h2>
+				</div>
+
+				<form class="forms__block-still" action="" method="post">
+					<div class="form-container-still">
+
+						<div class="input__block-still">
+
+							<input type="text" id="name" name="name" placeholder="Ваше имя" required />
+
+							<!-- Поле телефона -->
+
+							<input type="tel" id="phone" name="phone" placeholder="+7 (___) ___ __ __" required />
+						</div>
+
+
+						<!-- Согласие с политикой -->
+						<div class="checkboxing-still">
+							<input type="checkbox" id="privacyPolicy" required />
+							<label class="checkbox-label" for="privacyPolicy">Я согласен(а) с условиями политики на
+								обработку персональных данных</label>
+						</div>
+
+						<div class="btn-form-still">
+							<button class="btn-still" type="submit">Оставить заявку</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<section class="container">
+		<div class="reviews__h1">
+			<h1 class="info_h1">Отзывы</h1>
+		</div>
+		<div class="reviews">
+			<div class="slider-container">
+				<!-- Слайды -->
+				<div class="slides" id="slides">
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Иван Иванов -</p>
+						<blockquote>Наша компания предлагает широкий выбор земельных участков, идеально подходящих для
+							строительства дома мечты, организации дачного отдыха или инвестирования в недвижимость. Мы
+							тщательно подбираем каждый участок, учитывая его расположение, инфраструктуру и потенциал
+							для развития.</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Иван Иванов -</p>
+						<blockquote>Наша компания предлагает широкий выбор земельных участков, идеально подходящих для
+							строительства дома мечты, организации дачного отдыха или инвестирования в недвижимость. Мы
+							тщательно подбираем каждый участок, учитывая его расположение, инфраструктуру и потенциал
+							для развития.</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Иван Иванов -</p>
+						<blockquote>Наша компания предлагает широкий выбор земельных участков, идеально подходящих для
+							строительства дома мечты, организации дачного отдыха или инвестирования в недвижимость. Мы
+							тщательно подбираем каждый участок, учитывая его расположение, инфраструктуру и потенциал
+							для развития.</blockquote>
+
+					</div>
+
+				</div>
+
+				<!-- Навигационные кнопки -->
+				<button class="slider-btn prev" onclick="prevSlide()">❮</button>
+				<button class="slider-btn next" onclick="nextSlide()">❯</button>
+			</div>
+	</section>
+
+
+
+	<section class="footer">
+		<div class="container">
+			<div class="footer__container">
+
+				<div class="footer__block-h1">
+					<h1>Контакты</h1>
+					<div class="footer__block-contact">
+						<p>Адрес:<br> ул Ленина 45 офис 3</p>
+						<p>Телефоны менеджеров:</p>
+						<p>8-999-99-99-991 - Дарья</p>
+						<p>8-999-99-99-991 - Дарья</p>
+						<p>E-mail example@example.com</p>
+					</div>
+				</div>
+
+				<div class="footer__cart">
+					<iframe
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3A982f8abe08b3bd38a71ac4ae60347c28617c5544ae2c6d891b06c864e6a7666f&amp;source=constructor"
+						width="600" height="300" frameborder="0"></iframe>
+				</div>
+
+				<div class="footer__icon-h1">
+					<h1>Мы в соц. сетях</h1>
+					<div class="footer__icon-img">
+						<a href=""><img src="images/vk.png" alt=""></a>
+						<a href=""><img src="images/whatsapp.png" alt=""></a>
+						<a href=""><img src="images/tg.png" alt=""></a>
+					</div>
+					<div class="footer__icon-info">
+						<p>СК Лавровы поля</p>
+						<p>ИНН 5948064572</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="footer__menu">
+		<div class="container">
+			<div class="footer__block-menu">
+				<ul>
+					<li><a class="link" href="">О проекте</a></li>
+					<li><a class="link" href="">Земельные участки</a></li>
+					<li><a class="logo" href=""><img src="images/logo.png" alt=""></a></li>
+					<li><a class="link" href="">Условия покупки</a></li>
+					<li><a class="link" href="">Строительство домов</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="footer__content">
+		<div class="container">
+			<div class="footer__content-left">
+				<p><a href="">Политика конфиденциальности</a></p>
+				<p>&copy;Все права защищены</a></p>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/accordeon.js"></script>
+</body>
+
+</html>

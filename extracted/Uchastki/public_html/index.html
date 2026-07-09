@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Лавровы поля</title>
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<link rel="stylesheet" href="css/adaptiv.css?v=2">
+	<link rel="stylesheet" href="css/modalform.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/map.css?v=2">
+</head>
+</head>
+
+<body>
+	<section class="nav__block">
+		<section class="container">
+			<div class="menu">
+				<ul>
+					<li><a class="link" href="#project__block">О проекте</a></li>
+					<li><a class="link" href="#proecty">Земельные участки</a></li>
+					<a class="logo" href=""><img src="images/logo.png"></a>
+					<li><a class="link" href="">Условия покупки</a></li>
+					<li><a class="link" href="#footer">Контакты</a></li>
+				</ul>
+			</div>
+		</section>
+
+
+		<div class="container">
+			<div class="content">
+				<nav role="navigation">
+					<div id="menuToggle">
+						<input type="checkbox" />
+						<span></span>
+						<span></span>
+						<span></span>
+						<ul id="menu">
+							<li><a href="#project__block">О проекте</a></li>
+							<li><a href="#proecty">Земельные участки</a></li>
+							<li><a href="#">Условия покупки</a></li>
+							<li><a href="#footer">Контакты</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<section class="container">
+			<div class="header__title">
+				<h1 data-aos="fade-right" data-aos-duration="2000">Лавровы Поля</h1>
+				<h2>Земельные участки от собственника</h2>
+				<button onclick="location.href='#action__forms'" data-aos="zoom-out-left" data-aos-duration="1000" class="header__btn">Записаться на
+					просмотр</button>
+			</div>
+		</section>
+	</section>
+
+
+	<div class="project__block" id="project__block">
+		<section class="container">
+			<div class="project__h1">
+				<h1 class="info_h1">О проекте</h1>
+			</div>
+			<div class="project__centr">
+				<div class="project__left">
+					<h1 class="project__left-h1">Наша компания занимается строительством<br> загородных посёлков.</h1>
+					<h2 class="project__left-h2">Мы подберём для вас участок, отвечающий всем нужным критериям:<br>
+						<br>-Площадь от 6 соток
+						<br>-Удобные локации
+						<br>-Транспортная доступность
+						<br>-Благоустроенные дороги и электричество во всех посёлках
+						<br>-Детские площадки и зоны ТБО<br>
+						Различные варианты как для круглогодичного проживания так и для уединённого дачного
+						пространства.
+						Круглогодичное обслуживание дорог внутри посёлков!
+					</h2>
+					<button onclick="location.href='#action__forms'" data-aos="zoom-in" data-aos-duration="1000" class="project__btn">Записаться на
+						консультацию</button>
+				</div>
+				
+
+				<div data-aos-duration="2000" class="project__right">
+					
+						<div class="video-preview" data-video="video.mp4">
+							<img src="images/video__icon.png" alt="Play video">
+							<video muted class="video-thumbnail">
+							<iframe src="video.mp4" frameborder="0"></iframe>
+							</video>
+							
+						</div>
+
+				</div>
+
+					<!-- Попап-контейнер -->
+				<div class="video-popup-overlay">
+					<div class="video-popup-container">
+						<span class="video-popup-close">&times;</span>
+						<video controls class="video-popup-player">
+						Ваш браузер не поддерживает видео тег.
+						</video>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="benefits">
+		<div class="container">
+			<div class="benefits__h1">
+				<h1 class="info_h1">Наши преимущества</h1>
+			</div>
+			<div class="benefits__block">
+				<div data-aos="flip-up" data-aos-duration="1000" class="benefits__item-block">
+					<img src="images/doroga__icon.png" alt="">
+					<h2>Идеальная дорога</h2>
+					<h3>Скоростная незагруженная трасса<br> Пермь – Усть–качка, всего 40 км от Перми</h3>
+				</div>
+				<div class="benefist__border">
+					<img src="images/benefist__border.png" alt="">
+				</div>
+				<div data-aos="flip-up" data-aos-duration="2000" class="benefits__item-block">
+					<img src="images/derevo__icon.png" alt="">
+					<h2>Природа и чистый воздух</h2>
+					<h3>Живописные виды, целебный воздух<br> хвойного леса, грибы, ягоды и рыбалка</h3>
+				</div>
+				<div class="benefist__border benefist__border-2">
+					<img class="benefist__border-img" src="images/benefist__border.png" alt="">
+				</div>
+				<div data-aos="flip-up" data-aos-duration="3000" class="benefits__item-block">
+					<img src="images/dom__icon.png" alt="">
+					<h2>Современная инфраструктура</h2>
+					<h3>Магазины, школа, детский сад,<br> курорт Усть-Качка, база отдыха Аллюр,<br> страусиная ферма,
+						эко-глемпинги. <br> Активное финансирование от государства<br> в развитие данного направления
+					</h3>
+				</div>
+				<div class="benefist__border">
+					<img src="images/benefist__border.png" alt="">
+				</div>
+				<div data-aos="flip-up" data-aos-duration="3000" class="benefits__item-block">
+					<img src="images/icon4.png" alt="">
+					<h2>Гибкие условия покупки</h2>
+					<h3>Сопровождение в оформлении документов,<br> рассрочка без банка.
+					</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="proecty" id="proecty">
+		<div class="container">
+			<div class="proecty__action">
+				<div class="proecty__block-h1">
+					<h1 class="info_h1">Проекты</h1>
+				</div>
+				<div class="proecty__block">
+					<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+						class="proecty__block-items">
+						<div class="proecty__block-item">
+							<div class="proecty__info">
+								<h1 class="proecty__info-h1">Альпийские луга</h1>
+								<h2 class="proecty__info-h2"> Вблизи курорта усть-качка база отдыха Аллюр</h2>
+								<div class="proecty__number">
+									<p><span>150 </span>участков</p>
+									<p>Участки <span>7-14 </span>соток</p>
+									<p><span>18 ГА</span> полей</p>
+								</div>
+							</div>
+							<div class="proecty__action-item">
+								<a href="alp.html"><button class="act1">Подробнее</button></a>
+								<a href="alp.html"><button class="act2" data-genplan="map1.html">Ген.план</button></a>
+								<a href="alp.html"><button class="act3 consult" data-project="alp">Консультация</button></a>
+							</div>
+						</div>
+					</div>
+					<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+						class="proecty__block-items">
+						<div class="proecty__block-item">
+							<div class="proecty__info">
+								<h1 class="proecty__info-h1">Лесной воздух</h1>
+								<h2 class="proecty__info-h2">Участки находятся в живописном месте, окружены лесами и озерами.</h2>
+								<div class="proecty__number">
+									<p><span>156 </span>участков</p>
+									<p>Недалеко<span> от Перми</span></p>
+									<p><span>2.5 км </span>до Горшков</p>
+								</div>
+							</div>
+							<div class="proecty__action-item">
+								<a href="vozduh.html"><button class="act1">Подробнее</button></a>
+								<a href="vozduh.html"><button class="act2" data-genplan="map2.html">Ген.план</button></a>
+								<a href="vozduh.html"><button class="act3 consult" data-project="vozduh">Консультация</button></a>
+							</div>
+						</div>
+					</div>
+					<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+						class="proecty__block-items">
+						<div class="proecty__block-item">
+							<div class="proecty__info">
+								<h1 class="proecty__info-h1">Семейная усадьба</h1>
+								<h2 class="proecty__info-h2">Красивая природа вокруг лес, грибы и ягоды</h2>
+								<div class="proecty__number">
+									<p><span>65 </span>участков</p>
+									<p>Вблизи <span>реки Кама</span></p>
+									<p>Скидка <span>10% </span></p>
+								</div>
+							</div>
+							<div class="proecty__action-item">
+								<a href="usadba.html"><button class="act1">Подробнее</button></a>
+								<a href="usadba.html"><button class="act2" data-genplan="map3.html">Ген.план</button></a>
+								<a href="usadba.html"><button class="act3 consult" data-project="usadba">Консультация</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<section class="container">
+		<div class="reviews__h1" id="reviews__h1">
+			<h1 class="info_h1">Отзывы</h1>
+		</div>
+		<div class="reviews">
+			<div class="slider-container">
+				<!-- Слайды -->
+				<div class="slides" id="slides">
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar1.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Виктор -</p>
+						<blockquote>
+							Купили участок, очень уютное место, близ леса. Так как участки большие, нет кучности застройки, ощущается
+							просторно.
+							Быстро оформил с беспроцентной рассрочкой. Договор без сомнительных пунктов, все ровно. Очень доволен
+							приобретением.
+						</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Татьяна -</p>
+						<blockquote>
+							Есть в Пермском крае много мест где хотелось жить и Альпийские луга одно из них.
+							Чистый воздух, куда не посмотри все радует глаз, красивая природа, смешанный лес.
+							Вобщем купив участок здесь я считаю мне повезло, всем советую! 
+						</blockquote>
+					</div>
+					<div class="slide">
+						<div class="slide__img">
+							<img src="images/avatar2.png" alt="Avatar" class="avatar" />
+						</div>
+						<div class="slide__star">
+							<p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+						</div>
+						<p>- Юлия -</p>
+						<blockquote>
+							Приобретали участок в этой компании. Очень довольны своей покупкой.
+							Сотрудники оперативно отвечали на все наши вопросы, ожидания и реальность при выборе участка полностью
+							совпали.
+							Рекомендуем эту компанию от всей души! Замечательный коллектив и прекрасные участки! 
+						</blockquote>
+
+					</div>
+
+				</div>
+
+				
+				<button class="slider-btn prev" onclick="prevSlide()">❮</button>
+				<button class="slider-btn next" onclick="nextSlide()">❯</button>
+			</div>
+	</section>
+
+
+	<section class="action__forms" id="action__forms">
+		<div class="container">
+			<div class="actions__forms-block">
+				<div class="actions__forms-block-left">
+					<img src="images/girl.png" alt="">
+				</div>
+				<div class="actions__forms-block-right">
+					<h1 class="info_h1">Запишитесь на просмотр!</h1>
+					<h2>Покажем участки и особенности <br>инфраструктуры</h2>
+
+					<form class="forms__block-still" action="php/mail.php" method="post">
+						<div class="form-container">
+							<h2>Отправьте Вашу заявку:</h2>
+
+							<div class="input__block">
+
+								<input type="text" id="name" name="name" placeholder="Ваше имя" required />
+								<input type="tel" id="phone" name="phone" placeholder="+7 (___) ___ __ __" required />
+							</div>
+
+							<div class="checkboxing">
+								<input type="checkbox" id="privacyPolicy" required />
+								<label class="checkbox-label" for="privacyPolicy">Я согласен(а) с условиями политики на
+									обработку персональных данных</label>
+							</div>
+
+							<div class="btn-form">
+								<button class="btn" type="submit">Оставить заявку</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<section class="container">
+		<div class="accordeon__block-h1">
+			<h1 class="info_h1">Вопросы и ответы</h1>
+		</div>
+		<div class="accordeon__block">
+			<div class="accordion">
+				<div class="accordion-item active">
+					<div class="question">
+						<h3>Как купить участок?</h3>
+						<span class="icon"></span>
+					</div>
+					<div class="answer">
+						<p>1. Вы звоните нам по телефону +79028302372 или оставляете заявку на сайте и мы сами с вами свяжемся.
+						<p>2. Приезжаете на экскурсию в посёлок с нашим менеджером и бронируете участок. </p>
+						<p>3. Выбираете удобный способ оплаты и заключаете договор купли-продажи. </p>
+						<p>4. Становитесь обладателем собственного участка! </p>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<div class="question">
+						<h3>Способы оплаты? </h3>
+						<span class="icon"></span>
+					</div>
+					<div class="answer">
+						
+						<p>2. Беспроцентная рассрочка от собственника до 12 месяцев. Для оформления нужен только паспорт.</p>
+						<p>3. Стоимость участков от 40 000 рублей за сотку</p>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<div class="question">
+						<h3>На кого оформлены участки?</h3>
+						<span class="icon"></span>
+					</div>
+					<div class="answer">
+						<p>Все участки находятся в собственности нашей строительной компании СК "Лавровы поля". Участки без
+							обременений и не являются залоговым имуществом.</p>
+						<p>Наша компания гарантирует вам  безопасность сделки, так как прошла все юридические проверки и является
+							надёжным застройщиком.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="still__questions position-relative">
+			<div class="still__questions-block">
+				<div class="still__questions-block-h1">
+					<h1 class="info_h1">Остались вопросы?</h1>
+					<h2 class="still__questions-block-h2">Заполните форму и мы Вам перезвоним</h2>
+				</div>
+
+				<form class="forms__block-still" action="php/mail.php" method="POST">					
+					<div class="form-container-still">
+
+						<div class="input__block-still">
+
+							<input type="text" id="name" name="name" placeholder="Ваше имя" required />
+							<input type="tel" id="phone" name="phone" placeholder="+7 (___) ___ __ __" required />
+						</div>
+
+						<div class="checkboxing-still">
+							<input type="checkbox" id="privacyPolicy" required />
+							<label class="checkbox-label" for="privacyPolicy">Я согласен(а) с условиями политики на
+								обработку персональных данных</label>
+						</div>
+
+						<div class="btn-form-still">
+							<button class="btn-still" type="submit">Оставить заявку</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+	</section>
+
+	<section class="footer" id="footer">
+		<div class="container">
+			<div class="footer__container">
+
+				<div class="footer__block-h1">
+					<h1>Контакты</h1>
+					<div class="footer__block-contact">
+						<p>Адрес:<br> ул. Героев Хасана д. 105 корпус 70 офис 309Б</p>
+						<p>Телефоны менеджеров:</p>
+						<p>8-902-83-02-372 - Дарья</p>
+						<p>8-922-31-88-321 - Дарья</p>
+						<p>E-mail: info@lavrovy-polya.ru</p>
+					</div>
+				</div>
+
+				<div class="footer__cart">
+					<iframe
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3A982f8abe08b3bd38a71ac4ae60347c28617c5544ae2c6d891b06c864e6a7666f&source=constructor"
+						frameborder="0"
+						style="width: 100%; height: 100%;"> 
+					</iframe>
+				</div>
+
+				<div class="footer__icon-h1">
+					<h1>Мы в соц. сетях</h1>
+					<div class="footer__icon-img">
+						<a href=""><img src="images/vk.png" alt=""></a>
+						<a href=""><img src="images/whatsapp.png" alt=""></a>
+						<a href=""><img src="images/tg.png" alt=""></a>
+					</div>
+					<div class="footer__icon-info">
+						<p>СК Лавровы поля</p>
+						<p>ИНН 5948064572</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="footer__menu">
+		<div class="container">
+			<div class="footer__block-menu">
+				<ul>
+					<li><a class="link" href="#project__block">О проекте</a></li>
+					<li><a class="link" href="#proecty">Земельные участки</a></li>
+					<li><a class="logo" href=""><img src="images/logo.png" ></a></li>
+					<li><a class="link" href="">Условия покупки</a></li>
+					<li><a class="link" href="https://ск-лавровы.рф">Строительство домов</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="footer__content">
+		<div class="container">
+			<div class="footer__content-left">
+				<p><a href="">Политика конфиденциальности</a></p>
+				<p>&copy;Все права защищены</a></p>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalOverlay" class="modal-overlay">
+        <div class="modal-container">
+            <button id="closeModalButton">X</button>
+            <header class="modal-header">
+                <h1 class="modal__h1">Оставьте заявку<br> на консультацию</h1>
+            </header>
+            <form id="registrationForm">
+                <div class="modal__block-name">
+                    <input class="name" type="text" name="name" placeholder="Имя"  required>
+                    <input class="phone" type="tel" name="phone" placeholder="+7 (___) ___ ____" required>
+                    <div class="modal__checbox">
+                        <input class="checkbox" type="checkbox" name="checkbox" required>
+                        <h5 class="modal__chekbox-h5">Я согласен(а) с условиями Политики на<br> обработку персональных данных</h5>
+                    </div>
+                    <div class="button__block-modal"><button class="modal__btn" type="submit">Оставить заявку</button></div>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+	<div class="popup-overlay" id="genplanPopup">
+		<div class="popup-content">
+			<span class="popup-close">&times;</span>
+			<img src="" alt="Генеральный план" id="genplanImage">
+		</div>
+	</div>
+
+
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/accordeon.js"></script>
+	<script src="js/madalform.js"></script>
+	<script src="js/video.js"></script>
+	<script src="js/menu.js"></script>
+	<script>
+		const checkbox = document.querySelector('#menuToggle input');
+		const headerTitle = document.querySelector('.header__title h1');
+
+
+		checkbox.addEventListener('change', function() {
+			if (this.checked) {
+				headerTitle.style.marginTop = '260px';
+			} else {
+				headerTitle.style.marginTop = '';
+			}
+		});
+
+		window.addEventListener("resize", function() {
+			const iframe = document.querySelector(".footer__cart iframe");
+			iframe.style.height = iframe.clientWidth * 0.5 + "px"; // Поддержка соотношения
+		});
+
+	</script>
+</body>
+
+</html>

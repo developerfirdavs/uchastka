@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/alp.css?v=2">
+<style>
+  body {
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<div class="cart__block">
+				 <div class="">
+        
+        
+        <div class="filters">
+            <button id="filter-available" class="filter-btn active">Продается</button>
+            <button id="filter-reserved" class="filter-btn active">Бронь</button>
+            <button id="filter-sold" class="filter-btn active">Продан</button>
+        </div>
+        
+        <div class="map-wrapper">
+            <div class="loading">Загрузка данных...</div>
+            <img id="map-image" src="images/alp-luga.webp" alt="Карта New Filippovka" style="display: none;">
+        </div>
+    </div>
+	</div>
+	</div>
+<script src="js/map-loader.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var mapImage = document.getElementById('map-image');
+    mapImage.onload = function() {
+      MapLoader.init('https://docs.google.com/spreadsheets/d/1inVyIZE5m45iaHNhRJKIbNyBsIQ--NSxH4voDoJf2Vc/gviz/tq?tqx=out:csv&sheet=Sheet1');
+    };
+    if (mapImage.complete) {
+      MapLoader.init('https://docs.google.com/spreadsheets/d/1inVyIZE5m45iaHNhRJKIbNyBsIQ--NSxH4voDoJf2Vc/gviz/tq?tqx=out:csv&sheet=Sheet1');
+    }
+  });
+</script>
